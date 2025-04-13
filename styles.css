@@ -140,3 +140,28 @@ button:hover {
   outline: none;
   box-shadow: 0 0 5px #00bfff;
 }
+/* Final fix: remove any white background from select boxes */
+select,
+.choices__input,
+.choices__list--single {
+  background-color: #2c2c3e !important;
+  color: white !important;
+  font-weight: bold;
+  border: none !important;
+}
+
+/* Ensure dropdown toggle arrow area is also dark */
+.choices[data-type*="select-one"]::after {
+  border-color: white transparent transparent transparent; /* custom dropdown arrow color */
+}
+
+/* Remove white background on Choices input field when typing */
+.choices__input {
+  background-color: #2c2c3e !important;
+}
+
+/* Fix input container when item is selected */
+.choices__item.choices__item--selectable {
+  background-color: #2c2c3e !important;
+}
+
