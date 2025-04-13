@@ -35,14 +35,16 @@ input, select {
     border: none;
     border-radius: 6px;
     background-color: #f4f6f8;
-    color: #2c3e50;
+    color: #000000;               /* Black input text */
     font-size: 15px;
+    font-weight: bold;            /* Bold input text */
     transition: all 0.2s ease;
 }
 
 input::placeholder,
 select::placeholder {
     color: #7f8c8d;
+    font-weight: normal;
 }
 
 input:focus, select:focus {
