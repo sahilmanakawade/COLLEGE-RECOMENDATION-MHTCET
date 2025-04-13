@@ -1,62 +1,50 @@
-let collegeData = [];
- let choicesInstances = {};
+let filtered = collegeData;
  
- window.onload = async () => {
-   try {
-     const response = await fetch('data.json');
-     collegeData = await response.json();
- 
-     populateDropdown('city', getUnique(collegeData.map(c => c.City)));
-     populateDropdown('branch', getUnique(collegeData.map(c => c.Branch)));
-     populateDropdown('status', getUnique(collegeData.map(c => c.Status)));
-     populateDropdown('category', getUnique(collegeData.map(c => c.Category)));
-     setupChoicesDropdown('city', getUnique(collegeData.map(c => c.City)));
-     setupChoicesDropdown('branch', getUnique(collegeData.map(c => c.Branch)));
-     setupChoicesDropdown('status', getUnique(collegeData.map(c => c.Status)));
-     setupChoicesDropdown('category', getUnique(collegeData.map(c => c.Category)));
-   } catch (error) {
-     alert("Failed to load data.json.");
-     console.error(error);
- @@ -19,20 +20,34 @@ function getUnique(arr) {
-   return ['All', ...[...new Set(arr.map(v => v?.toLowerCase().trim()))].filter(Boolean).sort()];
- }
- 
- function populateDropdown(id, options) {
- function setupChoicesDropdown(id, options) {
-   const select = document.getElementById(id);
-   select.innerHTML = "";
- 
-   options.forEach(opt => {
-     const option = document.createElement('option');
-     option.value = opt;
-     option.textContent = opt.charAt(0).toUpperCase() + opt.slice(1);
-     select.appendChild(option);
-   });
- 
-   if (choicesInstances[id]) {
-     choicesInstances[id].destroy();
+   // City filter
+   if (!city.includes('All')) {
+     filtered = filtered.filter(c => city.includes(c.City?.toLowerCase()));
    }
  
-   choicesInstances[id] = new Choices(select, {
-     removeItemButton: true,
-     shouldSort: false,
-     placeholder: true,
-     placeholderValue: `Select ${id}`,
-     maxItemCount: -1,
-     searchEnabled: true,
+   // Branch filter
+   if (!branch.includes('All')) {
+     filtered = filtered.filter(c =>
+       (c.Branch && branch.some(b => c.Branch.toLowerCase().includes(b))) ||
+       (c["Branch - dd"] && branch.some(b => c["Branch - dd"].toLowerCase().includes(b)))
+     );
+   }
+ 
+   // Status filter
+   if (!status.includes('All')) {
+     filtered = filtered.filter(c => status.includes(c.Status?.toLowerCase()));
+   }
+ 
+   // Category filter
+   if (!category.includes('All')) {
+     filtered = filtered.filter(c => category.includes(c.Category?.toLowerCase()));
+   }
+ 
+   filtered = filtered.filter(c => parseFloat(c.Percentage) <= (percentile + 2));
+   // ✅ Percentile filter: show results from (input - 10) to 100
+   filtered = filtered.filter(c => {
+     const perc = parseFloat(c.Percentage);
+     return perc >= (percentile - 10) && perc <= 100;
    });
- }
  
- function getSelectedValues(id) {
-   const options = document.getElementById(id).selectedOptions;
-   return Array.from(options).map(opt => opt.value);
-   const values = choicesInstances[id].getValue(true);
-   return Array.isArray(values) ? values : [values];
- }
+   // Sort: highest percentile first, then by rank
+   filtered = filtered.sort((a, b) => {
+     const percA = parseFloat(a.Percentage);
+     const percB = parseFloat(b.Percentage);
+ @@ -91,11 +100,13 @@ document.getElementById('form').addEventListener('submit', function(e) {
+     return percB - percA || rankA - rankB;
+   });
  
- document.getElementById('form').addEventListener('submit', function(e) {
- @@ -97,5 +112,3 @@ document.getElementById('form').addEventListener('submit', function(e) {
+   // No matching colleges
+   if (filtered.length === 0) {
+     alert("⚠️ No matching colleges found.");
+     return;
+   }
  
-   XLSX.writeFile(workbook, `${name}_college_recommendations.xlsx`);
- });
- 
+   // Prepare data for export
+   const wsData = filtered.map(row => ({
+     College: row.College,
+     City: row.City,
