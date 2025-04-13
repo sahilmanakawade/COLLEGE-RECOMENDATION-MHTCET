@@ -81,7 +81,11 @@ document.getElementById('form').addEventListener('submit', function(e) {
     filtered = filtered.filter(c => category.includes(c.Category?.toLowerCase()));
   }
 
-  filtered = filtered.filter(c => parseFloat(c.Percentage) <= (percentile + 2));
+  const lowerBound = percentile - 10;
+filtered = filtered.filter(c => {
+  const perc = parseFloat(c.Percentage);
+  return perc >= lowerBound && perc <= 100;
+});
 
   filtered = filtered.sort((a, b) => {
     const percA = parseFloat(a.Percentage);
