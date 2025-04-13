@@ -112,6 +112,24 @@ button:hover {
   border: 1px solid #444;
   border-radius: 10px;
 }
+/* Make placeholder background match form and text bold */
+.choices__inner {
+  background-color: #2c2c3e !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+/* Style placeholder text */
+.choices__placeholder {
+  color: #ccc !important;
+  font-weight: bold;
+}
+
+/* Dropdown list items also bold */
+.choices__item--selectable {
+  font-weight: bold;
+  color: white;
+}
 
 /* Dropdown items */
 .choices__item--selectable {
