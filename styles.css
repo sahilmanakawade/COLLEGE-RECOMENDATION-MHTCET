@@ -69,13 +69,6 @@ input, select {
   box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.05);
 }
 
-/* Multi-select adjustments for Choices.js */
-.choices__inner {
-  background-color: #2c2c3e !important;
-  color: white;
-  border-radius: 10px;
-}
-
 /* Submit Button */
 button {
   width: 100%;
@@ -96,15 +89,19 @@ button:hover {
   box-shadow: 0 0 15px #00bfff99;
 }
 
-/* Fix Choices.js dropdown appearance */
+/* === Choices.js Styling === */
+
+/* Main container */
 .choices__inner {
   background-color: #2c2c3e !important;
   color: white !important;
   border-radius: 10px;
   border: none !important;
   padding: 10px 15px;
+  font-weight: bold;
 }
 
+/* Dropdown panel */
 .choices__list--dropdown,
 .choices__list[role="listbox"] {
   background-color: #2c2c3e !important;
@@ -112,27 +109,10 @@ button:hover {
   border: 1px solid #444;
   border-radius: 10px;
 }
-/* Make placeholder background match form and text bold */
-.choices__inner {
-  background-color: #2c2c3e !important;
-  color: white !important;
-  font-weight: bold;
-}
 
-/* Style placeholder text */
-.choices__placeholder {
-  color: #ccc !important;
-  font-weight: bold;
-}
-
-/* Dropdown list items also bold */
+/* Dropdown options */
 .choices__item--selectable {
   font-weight: bold;
-  color: white;
-}
-
-/* Dropdown items */
-.choices__item--selectable {
   color: white;
   padding: 10px;
   border-bottom: 1px solid #444;
@@ -145,11 +125,18 @@ button:hover {
 /* Placeholder text */
 .choices__placeholder {
   color: #aaa !important;
+  font-weight: bold;
 }
 
+/* Remove white background on dropdown */
+.choices__list--dropdown .choices__item,
+.choices__list[role="listbox"] .choices__item {
+  background-color: #2c2c3e !important;
+}
+
+/* Focus styles */
 .choices__inner:focus,
 .choices__inner:focus-visible {
   outline: none;
   box-shadow: 0 0 5px #00bfff;
 }
-
