@@ -2,117 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>College Recommender - VJTIIAN TALKS</title>
-
-  <!-- Custom CSS (if any) -->
+  <title>College Recommender</title>
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Choices.js CSS for beautiful multiselect -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f5f5f5;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .header img {
-      max-width: 200px;
-      height: auto;
-    }
-
-    .header h1 {
-      margin-top: 10px;
-      font-size: 28px;
-      color: #0077b6;
-    }
-
-    form {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 500px;
-      margin: 0 auto;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    input, select, button {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-
-    button {
-      background-color: #0077b6;
-      color: white;
-      margin-top: 20px;
-      cursor: pointer;
-      border: none;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #023e8a;
-    }
-  </style>
 </head>
 <body>
-
-  <!-- Logo and Brand Name -->
-  <div class="header">
-    <img src="vjtiian talks.jpg" alt="VJTIIAN TALKS Logo">
-    <h1>VJTIIAN TALKS</h1>
-  </div>
-
-  <!-- College Recommendation Form -->
-  <h2 style="text-align: center;">College Recommendation Form</h2>
-
+  <h2>College Recommendation Form</h2>
   <form id="form">
-    <label for="name">Name:</label>
+    <label>Name:</label>
     <input type="text" id="name" required>
 
-    <label for="percentile">Percentile:</label>
+    <label>Percentile:</label>
     <input type="number" id="percentile" step="0.01" required>
 
-    <label for="city">City:</label>
-    <select id="city" multiple></select>
+    <label>City:</label>
+    <select id="city" multiple size="5"></select>
 
-    <label for="branch">Branch:</label>
-    <select id="branch" multiple></select>
+    <label>Branch:</label>
+    <select id="branch" multiple size="5"></select>
 
-    <label for="status">Status:</label>
-    <select id="status" multiple></select>
+    <label>Status:</label>
+    <select id="status" multiple size="5"></select>
 
-    <label for="category">Category:</label>
-    <select id="category" multiple></select>
+    <label>Category:</label>
+    <select id="category" multiple size="5"></select>
 
     <button type="submit">Generate Excel</button>
   </form>
 
-  <!-- XLSX.js for Excel export -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
-  <!-- Choices.js for enhanced multiselect dropdowns -->
-  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
-
-  <!-- Your JS logic -->
   <script src="script.js"></script>
-
 </body>
 </html>
