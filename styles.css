@@ -1,3 +1,4 @@
+/* Animate on load */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -22,9 +23,9 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #000000;
+    background-color: #000000; /* Black background */
     padding: 40px;
-    color: #ffffff;
+    color: #ffffff; /* White text */
     overflow-x: hidden;
 }
 
@@ -39,7 +40,6 @@ body {
     height: auto;
     display: block;
     margin: 0 auto;
-    filter: drop-shadow(0 0 5px #00ffff);
 }
 
 .header h1 {
@@ -50,12 +50,12 @@ body {
 }
 
 form {
-    background-color: #000;
+    background-color: #000000; /* Form background black */
     max-width: 550px;
     margin: auto;
     padding: 35px 30px;
     border-radius: 12px;
-    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.05);
     animation: fadeInScale 1s ease forwards;
     opacity: 0;
     animation-delay: 0.5s;
@@ -64,13 +64,13 @@ form {
 }
 
 form:hover {
-    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
 }
 
 label {
     margin-bottom: 8px;
     font-weight: 600;
-    color: #e0e0e0;
+    color: #ffffff;
 }
 
 input, select {
@@ -78,11 +78,11 @@ input, select {
     width: 100%;
     padding: 10px 12px;
     margin-bottom: 20px;
-    border: 1px solid #444;
+    border: 1px solid #888888;
     border-radius: 6px;
-    background-color: #111;
+    background-color: #ffffff; /* Light background for input fields */
     font-size: 15px;
-    color: #fff;
+    color: #000000;
     transition: border-color 0.2s, box-shadow 0.2s;
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards;
@@ -91,16 +91,16 @@ input, select {
 }
 
 input:focus, select:focus {
-    border-color: #00ffff;
+    border-color: #3498db;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
 button {
-    background-color: #00ffff;
+    background-color: #3498db;
     border: none;
     padding: 12px 18px;
-    color: #000;
+    color: white;
     font-size: 16px;
     font-weight: bold;
     border-radius: 6px;
@@ -113,7 +113,7 @@ button {
 }
 
 button:hover {
-    background-color: #00cccc;
+    background-color: #2c80b4;
     transform: scale(1.03);
 }
 
