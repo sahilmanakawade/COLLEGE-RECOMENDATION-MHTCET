@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>College Recommender</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>College Recommendation Form</h2>
+  <form id="form">
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Percentile:</label>
+    <input type="number" id="percentile" step="0.01" required>
+
+    <label>City:</label>
+    <select id="city"></select>
+
+    <label>Branch:</label>
+    <select id="branch"></select>
+
+    <label>Status:</label>
+    <select id="status"></select>
+
+    <label>Category:</label>
+    <select id="category"></select>
+
+    <button type="submit">Generate Excel</button>
+  </form>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
