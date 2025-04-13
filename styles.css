@@ -12,6 +12,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Body with scroll lock class */
 body {
   background: radial-gradient(ellipse at bottom, #0d0d1a 0%, #1a1a2e 100%);
   color: #f0f0f0;
@@ -24,6 +25,14 @@ body {
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
+  transition: overflow 0.3s ease;
+}
+
+/* Class to lock scrolling when dropdown is open */
+body.dropdown-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }
 
 /* Animated Background Elements */
@@ -244,8 +253,9 @@ button:active {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
   margin-top: 8px !important;
   overflow: hidden !important;
-  max-height: 300px !important; /* Limit dropdown height */
-  overflow-y: auto !important; /* Enable vertical scrolling */
+  max-height: 300px !important;
+  overflow-y: auto !important;
+  z-index: 9999 !important; /* Ensure dropdown appears above other content */
 }
 
 /* Custom scrollbar for dropdown */
@@ -322,7 +332,6 @@ button:active {
     font-size: 1.75rem;
   }
   
-  /* Smaller dropdown max-height on mobile */
   .choices__list--dropdown,
   .choices__list[role="listbox"] {
     max-height: 200px !important;
