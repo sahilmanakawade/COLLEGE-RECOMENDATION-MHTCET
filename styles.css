@@ -1,4 +1,4 @@
-/* Ultra-Modern Color Graded Form */
+/* Ultra-Modern Color Graded Form - WIDE VERSION */
 :root {
   --electric-blue: #00a8ff;
   --neon-purple: #9c27b0;
@@ -16,23 +16,35 @@ body {
               #1a1a2e 90%);
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Changed to column layout */
+  justify-content: flex-start; /* Align to top */
   align-items: center;
   color: var(--cosmic-silver);
   line-height: 1.6;
-  padding: 20px;
+  padding: 40px 20px; /* Increased top padding */
 }
 
+/* Main container for form and logo */
+.content-wrapper {
+  width: 100%;
+  max-width: 900px; /* Wider container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* FORM STYLES */
 .form-container {
   width: 100%;
-  max-width: 500px;
+  max-width: 900px; /* Increased from 500px */
   perspective: 1000px;
+  margin-bottom: 40px; /* Space between form and logo */
 }
 
 .form-card {
   background: rgba(13, 13, 33, 0.85);
   border-radius: 16px;
-  padding: 40px;
+  padding: 40px 50px; /* More horizontal padding */
   box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(224, 224, 224, 0.1);
   backdrop-filter: blur(12px);
@@ -42,6 +54,36 @@ body {
   overflow: hidden;
 }
 
+/* Two-column layout for form fields */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+/* Full-width form groups */
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-group.half-width {
+  grid-column: span 1;
+}
+
+/* LOGO STYLES */
+.logo-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-logo {
+  width: 100px; /* Slightly larger */
+  height: 100px;
+  filter: drop-shadow(0 0 10px rgba(0, 168, 255, 0.5));
+  transition: all 0.4s ease;
+}
+
+/* Rest of your existing styles remain the same */
 .form-card:hover {
   transform: translateY(-5px) rotateX(2deg);
   box-shadow: 0 30px 70px -15px rgba(0, 168, 255, 0.3);
@@ -74,21 +116,13 @@ body {
   z-index: 2;
 }
 
-.form-logo {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 10px rgba(0, 168, 255, 0.5));
-  transition: all 0.4s ease;
-}
-
 .form-logo:hover {
   transform: scale(1.1) rotate(-5deg);
   filter: drop-shadow(0 0 15px rgba(156, 39, 176, 0.7));
 }
 
 .form-title {
-  font-size: 28px;
+  font-size: 32px; /* Slightly larger */
   font-weight: 700;
   margin: 0 0 10px;
   background: linear-gradient(90deg, 
@@ -101,7 +135,7 @@ body {
 }
 
 .form-subtitle {
-  font-size: 15px;
+  font-size: 16px;
   color: rgba(224, 224, 224, 0.7);
   margin: 0;
   font-weight: 300;
@@ -125,8 +159,8 @@ body {
 
 .form-input {
   width: 100%;
-  padding: 14px 18px;
-  font-size: 15px;
+  padding: 16px 20px; /* Slightly larger */
+  font-size: 16px;
   border: 1px solid rgba(0, 168, 255, 0.3);
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.3);
@@ -197,6 +231,3 @@ body {
 .form-button:active {
   transform: translateY(-1px);
 }
-
-/* Add to HTML head: */
-/* <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"> */
