@@ -219,7 +219,7 @@ button:active {
   transform: translateY(1px);
 }
 
-/* Choices.js Enhanced Styling */
+/* Enhanced Choices.js Styling with Scrollable Dropdown */
 .choices__inner {
   background: rgba(44, 44, 62, 0.7) !important;
   color: white !important;
@@ -244,6 +244,31 @@ button:active {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
   margin-top: 8px !important;
   overflow: hidden !important;
+  max-height: 300px !important; /* Limit dropdown height */
+  overflow-y: auto !important; /* Enable vertical scrolling */
+}
+
+/* Custom scrollbar for dropdown */
+.choices__list--dropdown::-webkit-scrollbar,
+.choices__list[role="listbox"]::-webkit-scrollbar {
+  width: 8px;
+}
+
+.choices__list--dropdown::-webkit-scrollbar-track,
+.choices__list[role="listbox"]::-webkit-scrollbar-track {
+  background: rgba(26, 26, 46, 0.5);
+  border-radius: 4px;
+}
+
+.choices__list--dropdown::-webkit-scrollbar-thumb,
+.choices__list[role="listbox"]::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00b7ff, #8e2de2);
+  border-radius: 4px;
+}
+
+.choices__list--dropdown::-webkit-scrollbar-thumb:hover,
+.choices__list[role="listbox"]::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#00a1e0, #7d1fd1);
 }
 
 .choices__item--selectable {
@@ -296,9 +321,15 @@ button:active {
   h2 {
     font-size: 1.75rem;
   }
+  
+  /* Smaller dropdown max-height on mobile */
+  .choices__list--dropdown,
+  .choices__list[role="listbox"] {
+    max-height: 200px !important;
+  }
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar for main page */
 ::-webkit-scrollbar {
   width: 8px;
 }
