@@ -1,142 +1,202 @@
-/* Modern, Elegant Form Design */
+/* Ultra-Modern Color Graded Form */
+:root {
+  --electric-blue: #00a8ff;
+  --neon-purple: #9c27b0;
+  --lava-orange: #ff3d00;
+  --acid-green: #8bc34a;
+  --deep-space: #0d0d21;
+  --cosmic-silver: #e0e0e0;
+  --stardust: rgba(255, 255, 255, 0.85);
+}
+
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #f8fafc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    color: #1e293b;
-    line-height: 1.5;
+  font-family: 'Montserrat', sans-serif;
+  background: radial-gradient(circle at 10% 20%, 
+              var(--deep-space) 0%, 
+              #1a1a2e 90%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--cosmic-silver);
+  line-height: 1.6;
+  padding: 20px;
 }
 
 .form-container {
-    width: 100%;
-    max-width: 480px;
+  width: 100%;
+  max-width: 500px;
+  perspective: 1000px;
 }
 
 .form-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
-                0 8px 10px -6px rgba(0, 0, 0, 0.04);
-    padding: 40px;
-    position: relative;
-    overflow: hidden;
+  background: rgba(13, 13, 33, 0.85);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(224, 224, 224, 0.1);
+  backdrop-filter: blur(12px);
+  transform-style: preserve-3d;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-card:hover {
+  transform: translateY(-5px) rotateX(2deg);
+  box-shadow: 0 30px 70px -15px rgba(0, 168, 255, 0.3);
 }
 
 .form-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, 
+              rgba(0, 168, 255, 0.1) 0%, 
+              rgba(156, 39, 176, 0.05) 50%, 
+              transparent 70%);
+  transform: rotate(30deg);
+  animation: cosmicGlow 15s infinite linear;
+}
+
+@keyframes cosmicGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .form-header {
-    text-align: center;
-    margin-bottom: 32px;
+  text-align: center;
+  margin-bottom: 35px;
+  position: relative;
+  z-index: 2;
 }
 
 .form-logo {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 16px;
-    object-fit: contain;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px rgba(0, 168, 255, 0.5));
+  transition: all 0.4s ease;
+}
+
+.form-logo:hover {
+  transform: scale(1.1) rotate(-5deg);
+  filter: drop-shadow(0 0 15px rgba(156, 39, 176, 0.7));
 }
 
 .form-title {
-    font-size: 24px;
-    font-weight: 600;
-    color: #1e293b;
-    margin: 0 0 8px 0;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  background: linear-gradient(90deg, 
+              var(--electric-blue), 
+              var(--neon-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 168, 255, 0.3);
 }
 
 .form-subtitle {
-    font-size: 14px;
-    color: #64748b;
-    margin: 0;
+  font-size: 15px;
+  color: rgba(224, 224, 224, 0.7);
+  margin: 0;
+  font-weight: 300;
 }
 
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 2;
 }
 
 .form-label {
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    color: #334155;
-    margin-bottom: 8px;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--electric-blue);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .form-input {
-    width: 100%;
-    padding: 12px 16px;
-    font-size: 15px;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    background-color: #f8fafc;
-    transition: all 0.2s ease;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 15px;
+  border: 1px solid rgba(0, 168, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--stardust);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .form-input:focus {
-    outline: none;
-    border-color: #93c5fd;
-    background-color: white;
-    box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.3);
+  outline: none;
+  border-color: var(--electric-blue);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 2px rgba(0, 168, 255, 0.3),
+              inset 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .form-select {
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300a8ff'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 18px;
 }
 
 .form-button {
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(to right, #3b82f6, #6366f1);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    margin-top: 8px;
-    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3), 
-                0 2px 4px -1px rgba(59, 130, 246, 0.1);
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, 
+              var(--electric-blue), 
+              var(--neon-purple));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+}
+
+.form-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+              transparent, 
+              rgba(255, 255, 255, 0.2), 
+              transparent);
+  transition: 0.5s;
 }
 
 .form-button:hover {
-    background: linear-gradient(to right, #2563eb, #4f46e5);
-    transform: translateY(-1px);
-    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3), 
-                0 4px 6px -2px rgba(59, 130, 246, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(156, 39, 176, 0.6);
+}
+
+.form-button:hover::before {
+  left: 100%;
 }
 
 .form-button:active {
-    transform: translateY(0);
+  transform: translateY(-1px);
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    .form-card {
-        padding: 32px 24px;
-    }
-    
-    .form-title {
-        font-size: 20px;
-    }
-}
-
-/* Add this to your HTML head for Inter font */
-/* <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"> */
+/* Add to HTML head: */
+/* <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"> */
