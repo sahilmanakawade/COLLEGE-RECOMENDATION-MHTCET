@@ -95,3 +95,43 @@ button:hover {
   background: linear-gradient(90deg, #0056b3, #6a11cb);
   box-shadow: 0 0 15px #00bfff99;
 }
+
+/* Fix Choices.js dropdown appearance */
+.choices__inner {
+  background-color: #2c2c3e !important;
+  color: white !important;
+  border-radius: 10px;
+  border: none !important;
+  padding: 10px 15px;
+}
+
+.choices__list--dropdown,
+.choices__list[role="listbox"] {
+  background-color: #2c2c3e !important;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 10px;
+}
+
+/* Dropdown items */
+.choices__item--selectable {
+  color: white;
+  padding: 10px;
+  border-bottom: 1px solid #444;
+}
+
+.choices__item--selectable:hover {
+  background-color: #3c3c5e;
+}
+
+/* Placeholder text */
+.choices__placeholder {
+  color: #aaa !important;
+}
+
+.choices__inner:focus,
+.choices__inner:focus-visible {
+  outline: none;
+  box-shadow: 0 0 5px #00bfff;
+}
+
